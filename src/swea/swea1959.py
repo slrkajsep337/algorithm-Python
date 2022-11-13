@@ -1,5 +1,6 @@
 
 
+
 T = int(input())
 sum = 0
 msum = 0
