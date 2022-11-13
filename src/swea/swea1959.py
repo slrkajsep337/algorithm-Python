@@ -9,7 +9,7 @@ for i in range(T):
     N, M = map(int, input().split())
     A = list(map(int, input().split()))
     B = list(map(int, input().split()))
-    if len(A)>len(B):
+    if N>M:
         temp = B
         B = A
         A = temp
@@ -19,6 +19,7 @@ for i in range(T):
         if msum < sum: msum = sum
         sum = 0
     answer.append(msum)
+    msum = 0
 
 
 for i in range(T):
