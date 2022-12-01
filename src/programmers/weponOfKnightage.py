@@ -18,8 +18,7 @@ def solution(number, limit, power):
 
     answer = sum(knightage)
 
-    return knightage
-
+    return answer
 print(solution(10, 3, 2))
 print(solution(5, 3, 2))
 
