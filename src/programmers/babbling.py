@@ -18,6 +18,6 @@ arr1 = ["aya", "yee", "u", "maa", "wyeoo"]
 arr2 = ["ayaye", "uuuma", "ye", "yemawoo", "ayaa"]
 
 print(solution(arr1))
-# print(solution(arr2))
+print(solution(arr2))
 
 
