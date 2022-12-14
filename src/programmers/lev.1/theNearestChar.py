@@ -4,21 +4,31 @@
 #가장 가까운 같은 글자
 
 def solution(s):
-    answer = []
+    answer = [-1]
 
-    for i in range(len(s)-1, -1, -1):
+    for i in range(1, len(s)):
         cnt = 0
-        if i==0:
-            answer.append(-1)
-            break
-        for j in range(i-1, -1, -1):
+        for j in range(i - 1, -1, -1):
             cnt += 1
-            if s[j]==s[i]:
+            if s[j] == s[i]:
                 answer.append(cnt)
+                #밑에 조건문에서 안걸리도록 -1 해주기
+                cnt -= 1
                 break
-        if cnt==i: answer.append(-1)
+        if cnt == i: answer.append(-1)
 
-    answer.reverse()
     return answer
 
 
+
+def solution2(s):
+    answer = []
+    dic = dict()
+    for i in range(len(s)):
+        if s[i] not in dic:
+            answer.append(-1)
+        else:
+            answer.append(i - dic[s[i]])
+        dic[s[i]] = i
+
+    return answer
