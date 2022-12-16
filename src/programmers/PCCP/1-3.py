@@ -1,6 +1,6 @@
 
 
-#1-3 (테케 하나 틀림 ㅎㅅㅎ.. Why....,,)
+#1-3 유전법칙
 
 import math
 
@@ -14,6 +14,10 @@ def solution(queries):
         cnt = i[0]
         target = i[1]
         check = False
+
+        if cnt == 1:
+            check = True
+            answer.append("Rr")
 
         while cnt>1:
             direction.append(target%4)
@@ -40,7 +44,7 @@ def solution(queries):
     return answer
 
 
-arr = [[4, 26]]
+arr = [[1, 1]]
 
 print(solution(arr))
 
