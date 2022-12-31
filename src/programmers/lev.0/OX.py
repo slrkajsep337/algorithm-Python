@@ -41,3 +41,20 @@ print(eval(s)) #출력 : 3
 s = "1+2=3"
 s = s.replace("=", "==")
 print(eval(s)) #출력 : True
+
+
+#새로운 풀이 추가
+def solution3(quiz):
+    result = []
+    for i in quiz:
+        i = i.split()
+        if i[1] == "+":
+            answer = int(i[0]) + int(i[2])
+        else:
+            answer = int(i[0]) - int(i[2])
+        result.append("O") if answer == int(i[4]) else result.append("X")
+
+    return result
+
+e = ["5 + 6 = 11"]
+print(solution3(e))
