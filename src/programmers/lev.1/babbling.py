@@ -27,8 +27,18 @@ def solution(babbling):
     return result
 
 
-l = ["ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"]
-print(solution(l))
+# str*2를 쓸 수 있었다...
+def solution2(babbling):
+    answer = 0
+    for i in babbling:
+        for j in ['aya','ye','woo','ma']:
+            if j*2 not in i:
+                i=i.replace(j,' ')
+        if len(i.replace(' ', ""))==0:
+            answer +=1
+    return answer
+
+
 
 
 
