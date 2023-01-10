@@ -1,4 +1,5 @@
 
+#숫자 짝꿍
 
 #1트 시간초과 풀이
 def solution(X, Y):
@@ -42,3 +43,19 @@ def solution2(X, Y):
             answer += str(i) * cnt[i]
 
     return answer
+
+
+#효율성 더 좋은 코드 for문 한개로
+
+def solution3(X, Y):
+    answer = ''
+
+    for i in range(9,-1,-1) :
+        answer += (str(i) * min(X.count(str(i)), Y.count(str(i))))
+
+    if answer == '' :
+        return '-1'
+    elif len(answer) == answer.count('0'):
+        return '0'
+    else :
+        return answer
