@@ -1,7 +1,7 @@
 
 
 
-#타겟넘버 BFS/DFS
+#타겟넘버 DFS
 
 #재귀 풀이 -> DFS
 def solution(numbers, target):
