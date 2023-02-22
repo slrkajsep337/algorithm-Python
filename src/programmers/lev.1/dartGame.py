@@ -28,7 +28,10 @@ def solution1(dartResult):
 
     return answer + temp
 
-#통과 풀이
+#10을 처리 해주기 위한 다른 방법으로는 시작 전 10을 특정 문자로 치환해주고, 계산할 때 10으로 되돌려서 처리해주는 방법이 있다.
+
+
+#통과 풀이(10을 처리해주기 위한 풀이)
 def solution2(dartResult):
     answer = 0
     idx = 0
