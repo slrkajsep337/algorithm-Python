@@ -3,7 +3,6 @@
 
 #카드
 
-import sys
 #1트 시간초과
 n = int(input())
 nums = [0 for x in range(n)]
@@ -46,27 +45,26 @@ print(answer)
 
 #다른 풀이
 import sys
+
 n = int(sys.stdin.readline())
-a = []
-
+nums = [0] * n
 for i in range(n):
-    a.append(int(sys.stdin.readline()))
+    nums[i] = sys.stdin.readline()
 
-a.sort()
+nums.sort()
+maxcnt = 1
+nowcnt = 1
+answer = nums[0]
 
-mode = a[0] #정답이 될 값
-modeCnt = 1 #앞 숫자의 cnt
-curCnt = 1
-
-for i in range(1, n):
-    #sort가 된 상태니까 차례로 수가 나온 횟수를 counting 할 수 있다.
-    if a[i] == a[i-1]:
-        curCnt += 1
+for i in range(1, len(nums)):
+    # sort가 된 상태니까 차례로 수가 나온 횟수를 counting 할 수 있다.
+    if nums[i] == nums[i-1]:
+        nowcnt += 1
     else:
-        curCnt = 1
-    #curCnt에 값을 더해주는 동시에 modeCnt도 동시에 값을 변경해준다. (총 cnt를 세서 한번에 더해주는 것 X)
-    if modeCnt < curCnt:
-        modeCnt = curCnt;
-        mode = a[i]
+        nowcnt = 1
+    # curCnt에 값을 더해주는 동시에 modeCnt도 동시에 값을 변경해준다. (총 cnt를 세서 한번에 더해주는 것 X)
+    if nowcnt > maxcnt:
+        maxcnt = nowcnt
+        answer = nums[i]
 
-print(mode)
+print(answer)
