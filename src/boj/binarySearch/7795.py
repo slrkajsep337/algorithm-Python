@@ -26,7 +26,7 @@ for i in range(t):
 
 
 #이분 탐색
-
+#총 시간 복잡도 nlogm + mlogm = (n+m)logm
 import sys
 input = sys.stdin.readline
 
@@ -51,10 +51,10 @@ for i in range(t):
     n, m = map(int, input().split())
     nlist = list(map(int, input().split()))
     mlist = list(map(int, input().split()))
-    mlist.sort()
+    mlist.sort() #시간복잡도 - mlogm
     answer = 0
 
-    for j in nlist:
+    for j in nlist: #nlist의 모든 원소마다 mlist에서 이분 탐색을 해야함 -> 시간복잡도 : nlogm
         answer += bsearch(0, m-1, j, mlist) + 1
 
     print(answer)
