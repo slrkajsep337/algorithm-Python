@@ -2,6 +2,7 @@
 
 
 #숫자 카드 2
+#차집합으로 생각, target 이하의 가장 오른쪽 값 - target 미만의 가장 오른쪽 값
 
 import sys
 input = sys.stdin.readline
@@ -24,18 +25,6 @@ def bsearch_lower(l, r, target, slist):
         else:
             r = m-1
     return rst
-
-# #target 이상의 가장 왼쪽 값을 찾기 -> 왜 정답 통과를 못하는지 ?
-# def bsearch_upper(l, r, target, slist):
-#     rst = l - 1
-#     while l <= r:
-#         m = (l+r)//2
-#         if slist[m] >= target:
-#             r = m-1
-#             rst = m
-#         else:
-#             l = m+1
-#     return rst
 
 #target 미만의 가장 오른쪽 값을 찾기
 def bsearch_upper(l, r, target, slist):
