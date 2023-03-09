@@ -1,7 +1,7 @@
 
 
 
-#N과 M (9) 미해결
+#N과 M (9)
 import sys
 input = sys.stdin.readline
 
@@ -16,10 +16,12 @@ def permutations(k):
     if k == m:
         print(*selected)
     else:
+        last_used = 0
         for i in range(n):
-            if used[i] == 0 or (i != n-1 and nums[i] != nums[i+1]):
+            if used[i] == 0 and nums[i] != last_used:
                 used[i] = 1
                 selected[k] = nums[i]
+                last_used= nums[i]
                 permutations(k+1)
                 selected[k] = 0
                 used[i] = 0
