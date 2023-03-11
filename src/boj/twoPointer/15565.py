@@ -12,18 +12,8 @@ answer = -1
 lion = 0
 
 for l in range(n):
-    while r<n and lion<=k:
-        if dolls[r] == 1:
-            lion += 1
-        if lion == k:
-            temp = r - l + 1
-        r += 1
 
-    if lion == k :
-        temp -= 1
-    if answer == -1: answer = temp
-    else: answer = min(answer, temp)
-    if dolls[l] == 1:
-        lion -= 1
+    while r<n and lion<=k:
+
 
 print(answer)
