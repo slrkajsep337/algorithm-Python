@@ -44,5 +44,54 @@ def solution(order):
 
     return answer
 
-t = [5, 4, 3, 2, 1]
+
+#풀이 2
+from collections import deque
+
+def solution(order):
+    answer = 0
+    container = deque()
+    sub_container = deque()
+    truck = []
+
+    for i in range(len(order)):
+        container.append(i + 1)
+
+    for box in order:
+
+        while True:
+            if len(container) and box == container[0]:
+                truck.append(container.popleft())
+                answer += 1
+                break
+            elif len(sub_container) and box == sub_container[0]:
+                truck.append(sub_container.popleft())
+                answer += 1
+                break
+            else:
+                sub_container.appendleft(container.popleft())
+                if len(container) == 0:
+                    return answer
+
+
+    return answer
+
+
+
+def solution(order):
+    temp = []
+    idx = 0
+
+    for box in range(1, len(order) + 1):
+        temp.append(box)
+        while temp[-1] == order[idx]:
+            temp.pop()
+            idx += 1
+            if len(temp) == 0:
+                break
+
+    return idx
+
+
+t = [4, 3, 1, 2, 5]
 print(solution(t))
