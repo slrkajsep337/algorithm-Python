@@ -6,20 +6,22 @@
 #마법의 엘리베이터
 
 def solution(storey):
-    s = str(storey)
-    l = len(s)
     answer = 0
 
-    for i in range(l - 1, -1, -1):
-        st = int(s[i])
-        if i == 0:
-            answer += st
-            break
-        if 0 <= int(s) < 6:
-            answer += st
+    while storey:
+        remainder = storey % 10
+        # 6 ~ 9
+        if remainder > 5:
+            answer += (10 - remainder)
+            storey += 10
+        # 0 ~ 4
+        elif remainder < 5:
+            answer += remainder
+        # 5
         else:
-            answer += 10 - st + 1
+            if (storey // 10) % 10 > 4:
+                storey += 10
+            answer += remainder
+        storey //= 10
 
     return answer
-
-print(solution(2554))
