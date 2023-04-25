@@ -14,7 +14,11 @@ while True:
     if target%2 == 0:
         target //= 2
     else:
-        target //= 10
+        if target%10 == 1:
+            target //= 10
+        else:
+            cnt = -1
+            break
     if target == num:
         break
     if target<1:
