@@ -25,3 +25,36 @@ def solution(queue1, queue2):
                     answer = min(answer, cnt)
 
     return answer
+
+#테케 14 실패
+def solution2(queue1, queue2):
+    answer = 600001
+    # 두 큐의 길이는 같음
+    if (sum(queue1) + sum(queue2)) % 2 == 0:
+        target = (sum(queue1) + sum(queue2)) // 2
+    else:
+        return -1
+
+    nqueue = queue1 + queue2
+
+    start, end = 0, 1
+    s = nqueue[start]
+    while start < end < len(nqueue):
+        if s == target:
+            cnt = start + end - len(queue1)
+            if cnt<0: cnt += len(nqueue)+cnt
+            answer = min(answer, cnt)
+            s -= nqueue[start]
+            start += 1
+        elif s < target:
+            s += nqueue[end]
+            end += 1
+        else:
+            s -= nqueue[start]
+            start += 1
+
+    return -1 if answer == 600001 else answer
+
+l1 = [1,1,1, 2]
+l2 = [1,1,1, 1, 1]
+print(solution2(l1, l2))
